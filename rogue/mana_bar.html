@@ -60,17 +60,15 @@ VANTA.DOTS({
   <script type="text/javascript" src="/eel.js"></script>
 </head>
 <html lang="es">
-  <body id="body" onload="eel.load()">
-    <div class="texto-top">
-      <h1 class="scale-in-center">ManaOverlay by CP</h1>
-      
-    </div>
+  <body id="body" onload="eel.load()" style="line-height: -10px;">
+    <h1 class="scale-in-center" style="position:relative; top: 15px;">ManaOverlay by CP</h1>
+    <div class="controls"><input type="range" max="100" min="0" id="opac" onchange="changeopacity()"></div>
     <div class="bars" id="bars">Loading...</div>
     <div id="json"></div>
-    <div class="topnav">
-      <div class="buttons">
+    <div class="topnav" style="z-index: 20;">
+      <div class="buttons" style="z-index: 20;">
         <button
-          class="pulse btn-center"
+          class="pulse btn-center" style="z-index: 20; background-color: rgba(146, 112, 1, 0.8);"
           onclick="window.location.replace('index.html')"
         >
           Home
@@ -83,6 +81,12 @@ VANTA.DOTS({
 
 <script>
   window.onload = function () {
+    if(localStorage.getItem("opacity")){
+      var op = localStorage.getItem("opacity")
+    }else{
+      var op = "50";
+    }
+    document.getElementById("opac").value = op;
     $.ajax({
       type: "post",
       url: "https://rogue.cpsoftware.es/api.php",
@@ -119,7 +123,19 @@ VANTA.DOTS({
       "</p></div>";
   }
   function setmana(src){
-    
-    eel.set_mana_bar(src, w = "200", h = "400", px = "-60", py = "500")
+    if(localStorage.getItem("opacity")){
+      var op = localStorage.getItem("opacity")
+    }else{
+      var op = "50";
+    }
+    eel.set_mana_bar(src, w = "200", h = "400", px = "-60", py = "500", op)
+  }
+</script>
+
+
+<script>
+  function changeopacity(){
+    var op = document.getElementById("opac").value;
+    localStorage.setItem("opacity", String(op));
   }
 </script>

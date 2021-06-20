@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 $servername = "localhost";
-$database = "logcalculator";
+$database = "rogue";
 $username = "root";
 $password = "";
 // Create connection
@@ -82,17 +82,24 @@ if(isset($_POST["getapi"])){
     $ip = $_POST["ip"];
     $hostname = $_POST["hostname"];
     $sql = "SELECT * FROM ordenadores WHERE BINARY ip = '$ip' and BINARY hostname = '$hostname'";
-    $do = mysqli_query($link, $sql);
-    if($do->num_rows == 1){
-        $result = mysqli_fetch_assoc($do);
-        echo $result["api"];
-    }else{
-        $api = generaterandomstring();
-        $sql = "INSERT INTO `ordenadores` (`id`, `nombre_custom`, `api`, `ip`, `hostname`) VALUES (NULL, '', '$api', '$ip', '$hostname');";
-        if(mysqli_query($link, $sql)){
-            echo $api;
+    if($do = mysqli_query($link, $sql)){
+        if($do->num_rows == 1){
+            $result = mysqli_fetch_assoc($do);
+            echo $result["api"];
+        }else{
+            $api = generaterandomstring();
+            $sql = "INSERT INTO `ordenadores` (`id`, `nombre_custom`, `api`, `ip`, `hostname`) VALUES (NULL, '', '$api', '$ip', '$hostname');";
+            if(mysqli_query($link, $sql)){
+                echo $api;
+            }else{
+                echo mysqli_error($link);
+            }
         }
+    }else{
+         echo mysqli_error($link);
     }
+    
+   
     
 }
 

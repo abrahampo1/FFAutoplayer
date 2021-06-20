@@ -22,6 +22,13 @@
     opacity: 1;
   }
 }
+body{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
 .slide-in-bottom {
   animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -31,7 +38,17 @@
 .bars {
   position: relative;
   display: flex;
-  top: 80px;
+  top: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+  padding-bottom: 14%;
+}
+.controls{
+  position: relative;
+  display: flex;
+  top: 20px;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -92,6 +109,11 @@ button {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+.texto-top h1{
+  background-color: rgb(146, 112, 1);
+  padding: 10px;
+  border-radius: 20px;
 }
 .exp {
   font-size: 20px;

