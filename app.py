@@ -19,7 +19,7 @@ from threading import Timer
 
 from requests import api
 
-version = 1.42
+version = 1.43
 client_id = "855638972033007617"  # Put your Client ID in here
 url_web = "https://rogue.cpsoftware.es"
 
@@ -148,9 +148,8 @@ if version < version_json["version"]:
     print("actualizando")
     r = requests.get("https://github.com/abrahampo1/RogueCompanion/releases/download/1.42/app.exe")
     try:
-        open('RogueCompanion.exe', 'wb').write(r.content)
-        subprocess.run("start "+ repr(os.path.realpath(os.path.dirname(sys.argv[0])) + "\RogueCompanion.exe").replace("'", "", 1), shell=True)
-        print(os.path.dirname(os.path.realpath(__file__)) + "\RogueCompanion.exe")
+        open('RogueCompanion'+version_json["version"]+'.exe', 'wb').write(r.content)
+        subprocess.run("start "+ os.path.realpath(os.path.dirname(sys.argv[0])) + "\RogueCompanion"+version_json['version']+".exe", shell=True)
         print("Actualizado!")
         data_upt = {"version": version_json["version"], "api": data["api"]}
         with open('data.txt', 'w') as outfile:
@@ -206,7 +205,7 @@ def set_mana_bar(src, w = "200", h = "600", px = "10", py = "10"):
         subprocess.run('C:\Windows\System32/taskkill /F /IM manaoverlay.exe', shell=True)
     except:
         print("lo abro ahora")
-    path = repr(os.path.realpath(os.path.dirname(sys.argv[0])) + "\manaoverlay.exe "+w+" "+h+" "+px+" "+py+" "+src+" 1").replace("'", "", 1)
+    path = os.path.realpath(os.path.dirname(sys.argv[0])) + "\manaoverlay.exe "+w+" "+h+" "+px+" "+py+" "+src+" 1"
     subprocess.run('start ' + path, shell=True)
 @eel.expose
 def ver():
