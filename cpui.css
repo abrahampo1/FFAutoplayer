@@ -1,0 +1,53 @@
+* {
+    font-family: "Raleway", sans-serif;
+  }
+  .key{
+    width: auto;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  h1{
+      color: whitesmoke;
+  }
+  .log{
+    color: aliceblue;  
+    font-size: 30px; 
+  }
+  .titulo {
+    text-align: center;
+    padding: 10px;
+    color: aliceblue;
+  }
+  .subtitulo{
+      color: aliceblue;
+  }
+  html {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      158deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 9, 121, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    text-align: center;
+  }
+  .border{
+    border-radius: 25px;
+  }
+  img{
+      
+      width: 100%;
+      height: auto;
+      max-width: 600px;
+  }
+  .descarga button{
+      margin: 20px;
+      border: 5px solid blue;
+      padding: 40px;
+      font-size: 20px;
+      background: none;
+      color: whitesmoke;
+      border-radius: 25px;
+      cursor: pointer;
+  }

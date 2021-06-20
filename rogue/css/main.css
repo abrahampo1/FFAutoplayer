@@ -1,0 +1,170 @@
+* {
+  font-family: "Raleway", sans-serif;
+  color: aliceblue;
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.slide-in-bottom {
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.scale-in-center {
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.bars {
+  position: relative;
+  display: flex;
+  top: 80px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+.bar {
+  cursor: pointer;
+  max-height: auto;
+  background-color: rgba(150, 115, 32, 0.6);
+  margin: 20px;
+  border-radius: 20px;
+  padding: 10px;
+}
+.bar img {
+  max-height: 300px;
+  width: auto;
+}
+.version {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(146, 112, 1);
+  padding: 10px;
+  border-radius: 0px 0px 20px 0px;
+}
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff, 0);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+.pulse {
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+button:hover,
+button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+.texto {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.texto-top {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.exp {
+  font-size: 20px;
+  margin-top: 20px;
+}
+.sonido {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.sonido img {
+  width: 40px;
+  height: auto;
+}
+.modal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.alert {
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: auto;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+.topnav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+button {
+  border: 5px solid rgba(139, 108, 0, 1);
+  padding: 40px;
+  font-size: 20px;
+  background: none;
+  color: whitesmoke;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.alert span {
+  color: red !important;
+}
+.titulo {
+  text-align: center;
+  padding: 10px;
+  color: aliceblue;
+}
+.subtitulo {
+  color: aliceblue;
+}
+html {
+  background: rgb(36, 28, 0);
+  background: linear-gradient(
+    158deg,
+    rgba(36, 28, 0, 1) 0%,
+    rgba(139, 108, 0, 1) 35%,
+    rgba(255, 198, 0, 1) 100%
+  );
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+img {
+  border-radius: 25px;
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
+.descarga button {
+}

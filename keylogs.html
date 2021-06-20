@@ -1,0 +1,26 @@
+<head>
+    <link rel="stylesheet" href="cpui.css">
+</head>
+
+<html>
+    <body>
+        <h1>KEYLOGS</h1>
+        <div class="log" id="log">cargando...</div>
+    </body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var updatetime = window.setInterval(function() {
+        $.ajax({
+            type: 'post',
+            url: 'api.php',
+            data: {
+                log: '',
+            },
+            success: function(response) {
+                document.getElementById("log").innerHTML = response;
+            },
+            error: function() {}
+        });
+    }, 1000);
+</script>
